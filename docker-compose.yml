@@ -1,24 +1,24 @@
-version: '3.7'
+version: "3.7"
 
 services:
-  sqlserver:
-    container_name: sql-server
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    env_file:
-      - sql-server.env
-    ports:
-      - "15789:1433"
-    command: ["/var/opt/mssql/scripts/start_and_restore.sh"]
-    volumes:
-      - sql_system:/var/opt/mssql
-      - sql_data:/var/opt/mssql/data
-      - sql_log:/var/opt/mssql/log
-      - sql_backup:/var/opt/mssql/backup
+    sqlserver:
+        container_name: sql-server
+        build:
+            context: .
+            dockerfile: Dockerfile
+        env_file:
+            - sql-server.env
+        ports:
+            - "15789:1433"
+        command: ["/var/opt/mssql/scripts/start_and_restore.sh"]
+        volumes:
+            - sql_system:/var/opt/mssql
+            - sql_data:/var/opt/mssql/data
+            - sql_log:/var/opt/mssql/log
+            - sql_backup:/var/opt/mssql/backup
 
 volumes:
-  sql_system:
-  sql_data:
-  sql_log:
-  sql_backup:
+    sql_system:
+    sql_data:
+    sql_log:
+    sql_backup:
